@@ -6,7 +6,9 @@ function workon (){
 		return 1
 	fi
 	
-	local pwd=$(find ~/Documents/ -name $1 ) #this command always returns 0
+	local pwd=$(find ~/Documents/ -name $1 -print -quit ) #this command always returns 0
+	# -print first prints the first occurence and -quit quits the finding after the first match 
+
 	if [[ $pwd != *"$1"* ]]; then
 		echo "venv not found"
 		return 1
